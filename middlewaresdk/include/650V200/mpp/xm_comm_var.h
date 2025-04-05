@@ -1,0 +1,38 @@
+#ifndef __XM_COMM_VAR_H__
+#define __XM_COMM_VAR_H__
+
+
+#ifdef __cplusplus
+#if __cplusplus
+extern "C" {
+#endif
+#endif /* __cplusplus */
+
+#include "xm_type.h"
+#include "xm_common.h"
+#include "xm_errno.h"
+#include "xm_comm_video.h"
+
+typedef XM_U32 VAR_CHN;
+
+#define XM_TRACE_VAR(level, fmt...) XM_TRACE(level, XM_ID_VAR,##fmt)
+#define XM_ERR_VAR_NULL_PTR        XM_DEF_ERR(XM_ID_VAR, EN_ERR_LEVEL_ERROR, EN_ERR_NULL_PTR)
+#define XM_ERR_VAR_NOTREADY        XM_DEF_ERR(XM_ID_VAR, EN_ERR_LEVEL_ERROR, EN_ERR_SYS_NOTREADY)
+#define XM_ERR_VAR_INVALID_DEVID   XM_DEF_ERR(XM_ID_VAR, EN_ERR_LEVEL_ERROR, EN_ERR_INVALID_DEVID)
+#define XM_ERR_VAR_INVALID_CHNID   XM_DEF_ERR(XM_ID_VAR, EN_ERR_LEVEL_ERROR, EN_ERR_INVALID_CHNID)
+#define XM_ERR_VAR_EXIST           XM_DEF_ERR(XM_ID_VAR, EN_ERR_LEVEL_ERROR, EN_ERR_EXIST)
+#define XM_ERR_VAR_UNEXIST         XM_DEF_ERR(XM_ID_VAR, EN_ERR_LEVEL_ERROR, EN_ERR_UNEXIST)
+#define XM_ERR_VAR_NOT_SUPPORT     XM_DEF_ERR(XM_ID_VAR, EN_ERR_LEVEL_ERROR, EN_ERR_NOT_SUPPORT)
+#define XM_ERR_VAR_NOT_PERM        XM_DEF_ERR(XM_ID_VAR, EN_ERR_LEVEL_ERROR, EN_ERR_NOT_PERM)
+#define XM_ERR_VAR_NOMEM           XM_DEF_ERR(XM_ID_VAR, EN_ERR_LEVEL_ERROR, EN_ERR_NOMEM)
+#define XM_ERR_VAR_NOBUF           XM_DEF_ERR(XM_ID_VAR, EN_ERR_LEVEL_ERROR, EN_ERR_NOBUF)
+#define XM_ERR_VAR_ILLEGAL_PARAM   XM_DEF_ERR(XM_ID_VAR, EN_ERR_LEVEL_ERROR, EN_ERR_ILLEGAL_PARAM)
+#define XM_ERR_VAR_BUSY            XM_DEF_ERR(XM_ID_VAR, EN_ERR_LEVEL_ERROR, EN_ERR_BUSY)
+#define XM_ERR_VAR_BUF_EMPTY       XM_DEF_ERR(XM_ID_VAR, EN_ERR_LEVEL_ERROR, EN_ERR_BUF_EMPTY)
+
+#ifdef __cplusplus
+#if __cplusplus
+}
+#endif
+#endif /* __cplusplus */
+#endif /* __XM_COMM_VAR_H__ */

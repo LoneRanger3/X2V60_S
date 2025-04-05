@@ -1,0 +1,16 @@
+#!/bin/sh
+
+insmod sdio0_sd.ko detect=1 detect_gpio=166 pdn=167 clk_phase=0x8  data_phase=0x8 clk=40
+
+(
+	#sleep 3
+	insmod /usr/lib/modules/dwc2.ko
+	insmod /usr/lib/modules/xm_usb0.ko
+	insmod /usr/lib/modules/sdio1_wifi.ko value=-79 phase=0x170 clk=50
+	insmod /usr/lib/modules/cfg80211.ko
+	insmod /usr/lib/modules/8189fs.ko
+	ifconfig eth2 up 192.168.169.1
+	mkdir /var/run
+)&
+
+

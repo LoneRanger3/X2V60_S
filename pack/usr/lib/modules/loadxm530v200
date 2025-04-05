@@ -1,0 +1,41 @@
+#!/bin/sh
+
+#内存和地址单位M
+MEM_ALL=128
+MEM_START=0x800
+MEM_SAMALL_LIN=0x1
+
+MEM_OS=`cat /proc/cmdline  | awk '{print $1}' | sed -e 's/mem=//' -e 's/M//'`
+MEM_LEN=`echo "$MEM_ALL $MEM_OS"|awk '{printf("0x%03x00000",$1-$2)}'`
+MEM_START=`echo "$MEM_START $MEM_SAMALL_LIN $MEM_OS"|awk '{printf("0x%03x00000",$1+$2*$3)}'`
+echo MEM_START=$MEM_START  MEM_LEN=$MEM_LEN
+
+# pll config
+./pll.sh >> /dev/null
+
+# insert modules
+insmod usbc.ko &
+insmod i2c.ko
+insmod mmz.ko mmz_start=$MEM_START mmz_size=$MEM_LEN
+insmod vb.ko
+insmod sys.ko
+insmod log.ko
+insmod ddr.ko
+insmod vo.ko
+insmod isp.ko
+insmod vi.ko rst=0
+insmod rgn.ko
+insmod rtc.ko
+insmod xm_wdt.ko
+insmod venc.ko
+insmod hevc.ko
+insmod jpeg.ko switch_en=1
+insmod adc.ko
+insmod acodec.ko
+insmod i2s.ko rate=16000
+insmod gpio_i2c.ko us=5
+#insmod spi_lcd.ko dc=67 clk=8
+insmod io_i2c.ko
+#点亮屏幕
+#regs 10020020 c00
+

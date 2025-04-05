@@ -1,0 +1,4 @@
+1、编译好的应用程序替换到usr/bin目录
+2、make clean
+3、make
+4、target下面会生成netall_xxx和upall_xxx的升级文件和烧片文件

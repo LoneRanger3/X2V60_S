@@ -1,7 +1,4 @@
 tmp/*
 romfs/*
-target/XDSM_XM650V200_CAR_DASHCAM_X2V60_V1.00_20250405.zip
-target/netall_XM650V200_CAR_X2V60.20250405.bin
-target/netall_XM650V200_CAR_X2V60.bin
-target/upall_XM650V200_CAR_X2V60.20250405.bin
+target/*
 usr/bin/car_demo

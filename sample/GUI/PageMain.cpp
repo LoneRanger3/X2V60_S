@@ -1141,7 +1141,7 @@ void PageMain::ShutDown(ShutDownMode shutdownmode, bool play_pic, bool close_pre
 		
 #if 1//X2V60_S_DEBUG1
         lv_timer_create(DelayTimer_SpkOff, 700, NULL);
-        lv_timer_create(ShutDownTimer_PullPowerOn, 600, (void*)shutdownmode);
+        //lv_timer_create(ShutDownTimer_PullPowerOn, 600, (void*)shutdownmode);
 #else
 		lv_timer_create(ShutDownTimer_PullPowerOn, 400, (void*)shutdownmode);
 #endif
@@ -1315,7 +1315,7 @@ void PageMain::AccDisconnectWork()
 	GlobalData::Instance()->car_config()->GetValue(CFG_Operation_Compact_Record_Duration, cfg_value);
 	int compact_record_dur = cfg_value.int_value;
 
-	if (g_sd_status == XM_SD_NORMAL && GlobalData::Instance()->SDCard_write_speed_ >= 1024 && compact_record_fps > 0) {
+	if (g_sd_status == XM_SD_NORMAL && GlobalData::Instance()->SDCard_write_speed_ >= 1024 && compact_record_fps > 0 && compact_record_dur > 0) {
 		OpenTipBox("About to enter minitype video mode");
 		if (acc_disconnect_timer_) {
 			lv_timer_del(acc_disconnect_timer_);

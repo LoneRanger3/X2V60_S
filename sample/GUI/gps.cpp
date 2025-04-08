@@ -978,7 +978,7 @@ int gps_data_rmc(char *gps_data_frame,struct rmc *_rmc_)
     	if(gps_online_flag){
 			
 			gps_online_old_flag = gps_online_flag;
-        	osd_time_ofs_y = 100;
+        	osd_time_ofs_y = OSD_TIME_ADJUST_Y;
 			MppMdl::Instance()->EnableOsdTime(4,1, 128, 8192*(kSubStreamHeight-60-(kSubStreamHeight/360)*8)/kSubStreamHeight + osd_time_ofs_y); //APP时间水印
     	}
 	}
@@ -998,7 +998,7 @@ int gps_data_rmc(char *gps_data_frame,struct rmc *_rmc_)
     			last_clean_gps_osd_flag=clean_gps_osd_flag;
 				
                 #if 1//OSD_SHOW_ADJUST
-				osd_time_ofs_y = 450;
+				osd_time_ofs_y = OSD_GPS_ADJUST_Y;
 			    clean_gps_osd_data(0);
 				MppMdl::Instance()->EnableOsdTime(4,1, 128, 8192*(kSubStreamHeight-60-(kSubStreamHeight/360)*8)/kSubStreamHeight + osd_time_ofs_y); //APP时间水印
 				#else

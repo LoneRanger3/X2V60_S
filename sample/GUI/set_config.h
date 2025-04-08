@@ -13,8 +13,8 @@ int AlarmRegionCoorSw(float coor, float length, bool flag);
 
 //#define X2V60_GPS_OSD        0
 #define OSD_SHOW_ADJUST     1    //搜不到gps时间水印下移，0关闭，1开启
-
-
+#define OSD_TIME_ADJUST_Y 0
+#define OSD_GPS_ADJUST_Y  420
 
 //配置
 struct _time
@@ -163,7 +163,7 @@ const XM_CONFIG_UNIT CFG_ALL_OPERATION_UNITS[] =
 	{ CFG_Operation_Exposure_Compensation,	"",		"Exposure_Compensation",CFG_Operation_Value_Int,	50},
 	{ CFG_Operation_White_Balance,			"",		"White_Balance",		CFG_Operation_Value_Int,	0},
 	{ CFG_Operation_Park_Monitor_Sensitivity,	"",		"Park_Monitor_Sensitivity",		CFG_Operation_Value_Int,	Sensitivity_Mid},
-	{ CFG_Operation_Compact_Record_Fps,			"",		"Compact_Record_Fps",			CFG_Operation_Value_Int,	0},
+	{ CFG_Operation_Compact_Record_Fps,			"",		"Compact_Record_Fps",			CFG_Operation_Value_Int,	1},
 	{ CFG_Operation_Compact_Record_Duration,	"",		"Compact_Record_Duration",		CFG_Operation_Value_Int,	0},
 	{ CFG_Operation_Collision_Sensitivity,		"",		"Collision_Sensitivity",		CFG_Operation_Value_Int,	Sensitivity_Mid},
 	{ CFG_Operation_Record_Voice,				"",		"Record_Voice",					CFG_Operation_Value_Bool,	true},

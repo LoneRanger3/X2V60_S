@@ -213,7 +213,7 @@ int clean_gps_osd_data(char tmp)
 }
 #endif
 
-int osd_time_ofs_y = 420;
+int osd_time_ofs_y = OSD_GPS_ADJUST_Y;
 
 int osd_data_init(void)
 {
@@ -241,7 +241,7 @@ int osd_data_init(void)
 		  move=20;
 	   }else if(cfg_value.int_value==1440){
           width_v=2560;
-		  height_v=1440-128;
+		  height_v=1440 - 180;//-128 -上移
 		  move=18;
 	   }else if(cfg_value.int_value==k3KHeight || cfg_value.int_value==k4KHeight){
         //   if(!MppMdl::Instance()->AdLoss()){
@@ -255,7 +255,7 @@ int osd_data_init(void)
 			 move=16;
 			}else{
 			 width_v=3840;
-		     height_v=k4KHeight-1024-256-128; 
+		     height_v=k4KHeight-156;//-1024-256-128 +下移
 			 move=16;
 			}
 		//   }
@@ -274,10 +274,10 @@ int osd_data_init(void)
 #if OSD_SHOW_ADJUST
 	  if(gps_online_flag){
 	  	
-		osd_time_ofs_y = 100;
+		osd_time_ofs_y = OSD_TIME_ADJUST_Y;
 	  }else{
 
-	    osd_time_ofs_y = 450;
+	    osd_time_ofs_y = OSD_GPS_ADJUST_Y;
 	  }
 #endif
 
